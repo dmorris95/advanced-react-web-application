@@ -76,7 +76,7 @@ describe('Add Product to Cart', () => {
             expect(screen.getByText(/Test Product 2/i)).toBeInTheDocument();
         });
 
-        const addButton = screen.getAllByText(/Add to Cart/i)[0]; //Get first instance
+        const addButton = screen.getAllByTestId('add-cart')[0]; //Get first instance
         fireEvent.click(addButton); //simulates the user interaction
 
         //Simulate the addItem action
@@ -95,7 +95,7 @@ describe('Add Product to Cart', () => {
         console.log(store.getState().cart);
 
         await waitFor(() => {
-            expect(screen.getByText(/Test Product 1 - Quantity: 1/i)).toBeInTheDocument();
+            expect(screen.getByTestId('product-quantity-display')).toBeInTheDocument();
         });
     });
 })

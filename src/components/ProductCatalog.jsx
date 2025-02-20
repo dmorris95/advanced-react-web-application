@@ -106,7 +106,7 @@ const ProductCatalog = () => {
                                 <Card.Text>
                                     {t('priceText')}{product.price}
                                 </Card.Text>
-                                <Button variant="primary" onClick={() => handleAddToCart(product.id)}>{t('addCartText')}</Button>
+                                <Button variant="primary" data-testid='add-cart' onClick={() => handleAddToCart(product.id)}>{t('addCartText')}</Button>
                             </Card.Body>
                         </Card>
                     </Col>

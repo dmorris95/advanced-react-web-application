@@ -84,7 +84,7 @@ const ShoppingCart = () => {
             <ListGroup>
                 {Object.entries(cart.items).map(([id, quantity]) => (
                     <ListGroup.Item key={id} className="d-flex justify-content-between align-items-center">
-                        <span>{productNames[id]}  - {t('cartQuantityText')} {quantity}</span>
+                        <span data-testid='product-quantity-display'>{productNames[id]}  - {t('cartQuantityText')} {quantity}</span>
                         <div>
                             <Button variant="success" className="mx-1" onClick={() => handleAddItem(id)}>+</Button>
                             <Button variant="danger" onClick={() => handleRemoveItem(id)}>-</Button>

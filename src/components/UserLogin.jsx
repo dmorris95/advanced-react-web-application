@@ -82,7 +82,7 @@ const UserLogin = () => {
 
     return (
     <section>
-        {showSuccessAlert && <Alert variant="success" className="text-center">{t('loginSuccess')}</Alert>}
+        {showSuccessAlert && <Alert variant="success" className="text-center" data-testid='login-alert'>{t('loginSuccess')}</Alert>}
         <Container className="d-flex align-items-center justify-content-center">
         <Form onSubmit={handleSubmit} className="m-3 bg-light p-3">
             <h3 className="text-center display-5">{t('userLoginText')}</h3>
@@ -91,6 +91,7 @@ const UserLogin = () => {
                 <Form.Control type="text"
                     name="username" required
                     placeholder={t('usernameTitle')}
+                    title="enterUsername"
                     value={userCred.username}
                     onChange={handleChange}
                     aria-label={t('usernameTitle')}
@@ -105,6 +106,7 @@ const UserLogin = () => {
                 <Form.Control type="text"
                     name="password" required
                     placeholder={t('passwordTitle')}
+                    title="enterPassword"
                     value={userCred.password}
                     onChange={handleChange}
                     aria-label={t('passwordTitle')}
@@ -115,7 +117,7 @@ const UserLogin = () => {
                 </Form.Control.Feedback>
             </Form.Group>
             <div className="d-flex justify-content-center">
-            <Button type="submit" variant="success" className="m-1">
+            <Button type="submit" variant="success" className="m-1" data-testid='login-button'>
                 {t('loginText')}
             </Button>
             <Button variant="info" className="m-1" onClick={handleCreate}>

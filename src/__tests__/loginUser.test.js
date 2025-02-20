@@ -7,6 +7,7 @@ import UserLogin from "../components/UserLogin";
 import { UserAuthContext } from "../context/UserAuthContext";
 import { MemoryRouter } from "react-router-dom";
 
+
 jest.mock('../API', () => ({
     loginUser: jest.fn(),
     fetchUsers: jest.fn()
@@ -57,15 +58,15 @@ describe('User Login Functionality', () => {
         });
 
         //Simulate User Input
-        fireEvent.change(screen.getByPlaceholderText('Enter username'), { target: { value: mockCredentials.username } });
-        fireEvent.change(screen.getByPlaceholderText('Enter password'), { target: { value: mockCredentials.password } });
-        fireEvent.click(screen.getByRole('button', { name: /login/i }));
+        fireEvent.change(screen.getByTitle('enterUsername'), { target: { value: mockCredentials.username } });
+        fireEvent.change(screen.getByTitle('enterPassword'), { target: { value: mockCredentials.password } });
+        fireEvent.click(screen.getByTestId('login-button'));
 
         console.log('Mock Login Calls:', mockLogin.mock.calls);
         //Wait for output
         await waitFor(() => {
             expect(mockLogin).toHaveBeenCalledWith(mockResponse.token, { username: 'test', id: 1 });
-            expect(screen.getByText(/Login Successful/i)).toBeInTheDocument();
+            expect(screen.getByTestId('login-alert')).toBeInTheDocument();
         });
     });
 })
