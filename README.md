@@ -2,6 +2,10 @@ The Advanced React E-Commerce Web Application
 
 This application uses the fakestoreapi to populate the application with simulated information using API calls to the web server. This application features internationalization with being able to switch between English and Portugese with the click of a button at the top of the screen. This application uses QueryClient and Redux to help maintain different parts of the application with Redux being used to maintain a logged in user's shopping cart. This application showcases testing within the User Login(Testing a successful Login) and the Product Catalog to Shopping Cart pages(Testing a product being added to the cart).
 
+--UPDATE (2/20/205) -- This project has been pushed into deployment on Vercel and completes a full CI/CD pipeline featuring testing and build deployment on a successful test.
+Application Link: https://advanced-react-web-application.vercel.app/
+
+
 - User Login
     - The User Login page simulates a users login by checking username and password combinations against the API's database of mock user profiles. Providing error messages for an invalid login or nonexistant user. A successful login transfers the user to the home page which displays a list of options and the Product Catalog. Successful Login will store the user's information in sessionStorage
 
